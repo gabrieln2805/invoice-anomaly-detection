@@ -18,7 +18,7 @@ def load_data(path):
     df = df[df["type"] == "PAYMENT"].copy()
     return df
 
-DATA_PATH = "D:/DS ML/fraud detect/data_sample.csv"
+DATA_PATH = "data_sample.csv"
 df = load_data(DATA_PATH)
 
 df = df.sort_values("step")
@@ -160,3 +160,4 @@ st.download_button(
     "flagged_invoices.csv",
     "text/csv"
 )
+
