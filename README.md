@@ -171,26 +171,7 @@ Export
 
 CSV export of flagged invoices for downstream audit workflows
 
-10. Limitations & Future Improvements
-Known limitations
-
-Synthetic dataset
-
-Limited vendor recurrence
-
-No ground truth labels
-
-Possible extensions
-
-Vendor risk scoring over time
-
-Hybrid rule + ML controls
-
-Sequence-based models (LSTM)
-
-Explanation models (SHAP / rule-based)
-
-11. Intended Use
+Intended Use
 
 This system is designed to 
 
