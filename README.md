@@ -120,10 +120,9 @@ This forces the autoencoder to accurately reconstruct common patterns and strugg
 7. Anomaly Scoring
 7.1 Reconstruction Error (recon_error)
 
+Low error = transaction fits learned normal behavior
 
-Low error → transaction fits learned normal behavior
-
-High error → transaction deviates across one or more dimensions
+High error = transaction deviates across one or more dimensions
 
 This score is continuous, not binary.
 
@@ -135,50 +134,23 @@ Default setting:
 
 - threshold = 98th percentile
 
-This mirrors audit practice:
-
- controls workload
-
-adapts to data volume
-
-avoids arbitrary absolute cutoffs
+This mirrors audit practice,controls workload adapts to data volume and avoids arbitrary absolute cutoffs
 
 8. Result Interpretation
 8.1 Why some invoices with low Z-score are flagged
 
-An invoice can have:
-
-a normal amount (amount_zscore ≈ 0)
-
-but still be anomalous due to:
-
-unusual timing
-
-rare vendor behavior
-
-multivariate interactions
-
-This is expected and desirable:
-
-Anomalies are detected based on overall pattern deviation, not a single metric.
+An invoice can have a normal amount (amount_zscore ≈ 0) but still be anomalous due to unusual timing, rare vendor behavior and multivariate interactions. This is expected and desirable since anomalies are detected based on overall pattern deviation, not a single metric.
 
 8.2 Vendor Frequency Effect
 
-Due to dataset characteristics:
+Due to dataset characteristics most vendors appear only once or twice and vendor_tx_count is often low.
 
-most vendors appear only once or twice
-
-vendor_tx_count is often low
-
-As a result:
-
-the model emphasizes contextual and amount-based anomalies
-
-this behavior is documented and expected
+As a result the model emphasizes contextual and amount-based anomalies, this behavior is documented and expected.
 
 In real ERP systems, vendor histories would be longer, improving vendor risk profiling.
 
 9. Dashboard Outputs
+10. 
 KPIs
 
 Total invoices processed
@@ -220,26 +192,9 @@ Explanation models (SHAP / rule-based)
 
 11. Intended Use
 
-This system is designed to:
+This system is designed to 
 
-assist accounting and audit teams
+- assist accounting and audit teams and prioritize review effort
 
-prioritize review effort
+- increase coverage without increasing workload
 
-increase coverage without increasing workload
-
-It is not intended to:
-
-automatically classify fraud
-
-replace human judgment
-
-✅ Summary
-
-This project demonstrates:
-
-responsible use of ML in finance
-
-unsupervised anomaly detection aligned with audit practice
-
-transformation from raw transactions to actionable insights
